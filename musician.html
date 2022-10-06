@@ -17,11 +17,18 @@
     <input type="button" onclick="checkGuess()" value="Check the Guess">
     
 </form>
-<p id="result">This text will be replaced </p>
+<br>
+    <div class="container">
+        <img src="Honeybee.jpg" id="image" onclick="swapImage()" alt="Honeybee" style=" width:100px; height:100px;">
+      </div>
+
+    <div id="result"></div>
+
 
 <script> 
     var correct = 0;
     var wrong = 0;
+    useimage=1;
     
     function checkGuess(){
             console.log("Getting form values")
