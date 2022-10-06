@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Discount page</title>
+</head>
+ 
+<body>
+
+<h2>PONNAM JAGADEESH Computes Discounts</h2>
+
+<form>
+    <label for="form1_bsamt">Enter base amount</label>
+    <input type ="number" id="form1_bsamt" name="form1_bsamt" value=20> <br>
+
+    <label for="form1_dsc">Enter the discount percentage</label>
+    <input type ="number" id="form1_dsc" name="form1_dsc" value=10 > <br>
+
+    <input type="button" onclick="discount()" value="Apply Discount">
+</form>
+
+<p id="result">Discount will appear here</p>
+
+<script> 
+
+function discount(){
+   
+    amount = document.getElementById("form1_bsamt").value
+    disc= document.getElementById("form1_dsc").value
+    result="Discounted amounts for base "+amount+" are "
+    for(let i=1;i<6;i++){
+        mx=i*amount
+        total=mx*(1-(disc/100))
+        result+= total+" "
+
+    }
+    replacetxt=document.getElementById("result");
+    replacetxt.innerHTML=result;
+}
+</script>
+<div class="container">
+    <form>
+        <div class="form-group">
+        <input type="radio" id="rg1" name="operations" onclick="chooseOp()" value="times">
+        <label for="rg1">*</label> 
+        </div><br>
+        <div class="form-group">
+        <input type="radio" id="rg2" name="operations" onclick="chooseOp()" value="divide">
+        <label for="rg2">/</label> 
+        </div><br>
+        <div class="form-group">
+        <input type="radio" id="rg3" name="operations" onclick="chooseOp()" value="exponent">
+        <label for="rg3">**</label>
+    </div><br>
+    </form>
+
+<p id="result2"> result will be displayed here </p>
+
+</div>    
+<script>
+function chooseOp()
+{
+   let base=document.getElementById("form1_bsamt").value;
+   let discount=document.getElementById("form1_dsc").value;
+   let times=document.getElementById("rg1").checked;
+   let divide=document.getElementById("rg2").checked;
+   let exponent=document.getElementById("rg3").checked;
+   let resultOp=0;
+   if(times)
+   {
+    resultOp=base*discount
+   }
+   else if(divide)
+   {
+    resultOp=base/discount
+   }
+   else if(exponent)
+   {
+    resultOp=base**discount
+   }
+   document.getElementById("result2").innerHTML="The Value is "+resultOp;
+
+}
+</script>
+</body>
+</html> 
