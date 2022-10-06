@@ -1,66 +1,63 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Musician guess by Ponnam Jagadeesh</title>
-</head>
+    <head>
+        <title>Page about Musicians</title>
+    </head>
 <body>
-    <h1>MUSICIAN GUESS BY PONNAM JAGADEESH</h1>
-    <h2>Getting input</h2>
-
+<h1>Musician guess by PONNAM JAGADEESH</h1>
+<h2>Input</h2>
 <form>
-    <label for="form_name">Enter the secret musician name:</label>
-    <input type ="password" id="form_name" name="form_name" min=10 max=50 step=2 value="John Lennon"> <br>
-    <label for="form_guess">Guess the musician:</label>
-    <input type ="text" id="form_guess" name="form_guess" autofocus> <br>
-    <input type="button" onclick="checkGuess()" value="Check the Guess">
-    
+    <label for="form1_password">Enter the secret musician name </label>
+    <input type ="password" id="form1_password" name="form1_password" value="John Lennon"> <br>
+
+    <label for="form1_name">Guess the Musician</label>
+    <input type ="text" id="form1_name" name="form1_name" autofocus> <br>
+
+    <input type="button" onclick="checkGuess()" value="Check the guess">
 </form>
-<p id="result">Result after clicking the above button </p>
+<p id="result">Result will appear here after clicking the above button </p>
 <script> 
-    var correct = 0;
-    var wrong = 0;
-    function checkGuess(){
-            console.log("Getting form values")
-            Name = document.getElementById("form_name").value
-            Guess = document.getElementById("form_guess").value
-            
-            
-            out = document.getElementById("result")
-            if(Name==Guess){
-                correct+=1;
-                alert("You got it right");
-                out.innerHTML = correct;
-            } else {
-                wrong = wrong +1;
-                alert("Wrong musician");
-            }
-                out.innerHTML = "Right count "+correct+"Wrong count "+wrong
-            }
-        </script>
+var correct=0;
+var wrong=0;
+function checkGuess(){
+    mname=document.getElementById("form1_password").value
+    mpassword=document.getElementById("form1_name").value
+    out=document.getElementById("result")
+    if(mname==mpassword){    
+        correct+=1
+        alertright=alert("You got it right")
+    }
+    else{ 
+        wrong+=1
+        alertwrng=alert("Wrong Musician")
+    }
+    out.innerHTML="Right count "+correct+"Wrong count "+wrong
+}
+</script>
 <div class="container">
     <img id="photo" src="ants.jpg" alt="Image of an Ant" width="100px" height="100px" onclick="swapImage()">
 
 </div>
 <script>
     var useImage=1;
-            function swapImage(){
-            switch(useimage){
-                case 1:useimage=useimage+1
-                        image.src="ants.jpg";
-                        useimage1;
-                       break;
-                case 2:useimage=useimage+1
-                        image.src="planthopers.jpg";
-                        useimage2;
-                         break;
-                case 3:useimage=1
-                         image.src="netwinged.jpg";
-                         useimage3;
-                         break;
-            }
+    
+    function swapImage(){
+        switch (useImage){
+            case 1:
+                document.getElementById("photo").src="planthopers.jpg";
+                useImage=2;
+                break;
+            case 2:
+                document.getElementById("photo").src="netwinged.jpg";
+                useImage=3;
+                break;
+            case 3:
+                document.getElementById("photo").src="ants.jpg";
+                useImage=1;
+                break;
         }
-        
-    </script>
+    }
+</script>
 
 </body>
 </html> 
