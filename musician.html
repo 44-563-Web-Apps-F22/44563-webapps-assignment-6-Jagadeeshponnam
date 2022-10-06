@@ -2,13 +2,10 @@
 <html>
 <head>
     <title>Musician guess by Ponnam Jagadeesh</title>
-    <h2>Musician guess by Ponnam Jagadeesh</h2>
 </head>
 <body>
-    
-    
-
-
+    <h1>MUSICIAN GUESS BY PONNAM JAGADEESH</h1>
+    <h2>Getting input</h2>
 
 <form>
     <label for="form_name">Enter the secret musician name:</label>
@@ -18,19 +15,10 @@
     <input type="button" onclick="checkGuess()" value="Check the Guess">
     
 </form>
-<br>
-    <div class="container">
-        <img src="ants.jpg" id="image" onclick="swapImage()" alt="ants" style=" width:100px; height:100px;">
-      </div>
-
-    <div id="result"></div>
-
-
+<p id="result">Result after clicking the above button </p>
 <script> 
     var correct = 0;
     var wrong = 0;
-    useimage=1;
-    
     function checkGuess(){
             console.log("Getting form values")
             Name = document.getElementById("form_name").value
@@ -39,15 +27,22 @@
             
             out = document.getElementById("result")
             if(Name==Guess){
-                correct = correct+1;
+                correct+=1;
                 alert("You got it right");
                 out.innerHTML = correct;
             } else {
                 wrong = wrong +1;
                 alert("Wrong musician");
-                out.innerHTML = wrong;
-                }
             }
+                out.innerHTML = "Right count "+correct+"Wrong count "+wrong
+            }
+        </script>
+<div class="container">
+    <img id="photo" src="ants.jpg" alt="Image of an Ant" width="100px" height="100px" onclick="swapImage()">
+
+</div>
+<script>
+    var useImage=1;
             function swapImage(){
             switch(useimage){
                 case 1:useimage=useimage+1
